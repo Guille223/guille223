@@ -43,4 +43,5 @@ export class AppComponent implements OnInit {
         coin.symbol.toLowerCase().includes(this.searchText.toLowerCase())
     );
   }
+  onRefresh() { this.ngOnInit(); }
 }

@@ -7,6 +7,7 @@
                 class="form-control bg-dark text-light border-0 my-4 text-center" autofocus (keyup)="searchCoin()"
                 [(ngModel)]="searchText" />
 
+            <button (click)="onRefresh()">Refresh</button>
             <table class="table table-dark">
                 <thead>
                     <tr>
