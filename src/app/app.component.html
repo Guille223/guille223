@@ -1,14 +1,13 @@
-<div class="container">
+<div class="container" style="text-align: center;">
     <div class="row">
         <div class="col-xs-12">
-            <h1>CoinMarket</h1>
-
+            <h1 class="float_lang_base_1 relativeAttr" dir="ltr">Market </h1>
             <input type="text" placeholder="Search a Coin"
                 class="form-control bg-dark text-light border-0 my-4 text-center" autofocus (keyup)="searchCoin()"
                 [(ngModel)]="searchText" />
 
             <button (click)="onRefresh()">Refresh</button>
-            <table class="table table-dark">
+            <table class="styled-table">
                 <thead>
                     <tr>
                         <td *ngFor="let title of titles">
@@ -20,19 +19,25 @@
                 <tbody>
                     <tr *ngFor="let coin of filteredCoints; let i = index">
                         <td>{{ i + 1 }}</td>
-                        <td>
-                            <img [src]="coin.image" alt="{{ coin.name }}" style="width: 2rem" class="img-fluid me-4" />
-                            <span>{{ coin.name }}</span>
-                            <span class="ms-3 text-muted text-uppercase">{{ coin.symbol }}</span>
+                        <td style="text-align:left;">
+                            <img [src]="coin.image" alt="{{ coin.name }}" style="width: 1.5rem"
+                                class="img-fluid me-4" />
+
+                            <a href="https://www.w3schools.com" style="text-align:left;"> {{ coin.symbol |
+                                uppercase}}</a>
+                            <span class="fw-bold"> ({{ coin.name }})</span>
                         </td>
-                        <td>{{ coin.current_price.toLocaleString() }}</td>
+
+
+                        <td style="text-align: right;"> $ {{ coin.current_price.toLocaleString() }}
+                        </td>
 
                         <td [ngClass]="
                   coin.price_change_percentage_24h > 0
                     ? 'text-success'
                     : 'text-danger'
                 ">
-                            {{ coin.price_change_percentage_24h }}
+                            {{ coin.price_change_percentage_24h | number : '1.2-2' }}%
                         </td>
                         <td>{{ coin.total_volume.toLocaleString() }}</td>
                     </tr>
