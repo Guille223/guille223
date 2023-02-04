@@ -1,1 +1,26 @@
-<p>coin works!</p>
+<div class="container" style="text-align: center;">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 class="float_lang_base_1 relativeAttr" dir="ltr">History Daily </h1>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <td>
+                            Price
+                        </td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let chart of chart.prices; let i = index">
+
+                        <td style="text-align:left;">
+                            <span class="fw-bold"> ({{ chart[1] | currency:'USD':'symbol'}})</span>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

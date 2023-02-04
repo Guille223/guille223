@@ -29,7 +29,7 @@
                         </td>
 
 
-                        <td style="text-align: right;"> $ {{ coin.current_price.toLocaleString() }}
+                        <td style="text-align: right;"> {{ coin.current_price | currency:'USD':'symbol'}}
                         </td>
 
                         <td [ngClass]="
