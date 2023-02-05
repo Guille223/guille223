@@ -10,7 +10,7 @@ import { CoinsService } from '../../services/coins.service'
 })
 export class CoinComponent {
 
-  chart: any;
+  chart!: Chart;
 
   constructor(
     private coinsService: CoinsService //aquí tenemos que inyectar el servicio
@@ -22,8 +22,8 @@ export class CoinComponent {
 
     this.coinsService.getChart('ethereum')
       .subscribe((res) => {
-        console.log(res);
         this.chart = res;
+        this.chart.prices.sort((a, b) => 0 - (a > b ? 1 : -1)); // Sort descending
       },
         (err) => console.error(err)
       );

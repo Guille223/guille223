@@ -6,6 +6,9 @@
                 <thead>
                     <tr>
                         <td>
+                            Days
+                        </td>
+                        <td>
                             Price
                         </td>
                     </tr>
@@ -15,7 +18,12 @@
                     <tr *ngFor="let chart of chart.prices; let i = index">
 
                         <td style="text-align:left;">
-                            <span class="fw-bold"> ({{ chart[1] | currency:'USD':'symbol'}})</span>
+
+                            <span class="fw-bold"> {{ i }}</span>
+                        </td>
+                        <td style="text-align:left;">
+
+                            <span class="fw-bold"> {{ chart[1] | currency:'USD':'symbol' }}</span>
                         </td>
 
                     </tr>

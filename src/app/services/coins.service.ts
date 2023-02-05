@@ -8,8 +8,9 @@ import { HttpClient } from '@angular/common/http'
 })
 export class CoinsService {
 
-  Coins: Coin[] = [];
-  Chart: Chart[] = [];
+
+
+
 
   api: string =
     'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false';
@@ -25,6 +26,8 @@ export class CoinsService {
   };
 
   getChart(id: string) {
-    return this.http.get<any>(this.ap2)
+    return this.http.get<Chart>(this.ap2)
   };
 }
+
+

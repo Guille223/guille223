@@ -11,6 +11,7 @@ import { CoinComponent } from './components/coin/coin.component';
 import { ImageComponent } from './components/image/image.component';
 import { ChartComponent } from './components/chart/chart.component';
 
+
 @NgModule({
   declarations: [AppComponent, NavComponent, NewsComponent, CoinsComponent, CoinComponent, ImageComponent, ChartComponent],
   imports: [BrowserModule, HttpClientModule, FormsModule],
