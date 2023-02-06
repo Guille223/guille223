@@ -17,6 +17,10 @@ export class CoinsComponent implements OnInit {
   searchText: string = '';
   filteredCoints: Coin[] = [];
 
+  //hiding info box
+  visible: boolean = false
+  coinId: string = ''
+
   constructor(
     private coinsService: CoinsService //aquí tenemos que inyectar el servicio
   ) {
@@ -43,4 +47,10 @@ export class CoinsComponent implements OnInit {
     );
   }
   onRefresh() { this.ngOnInit(); }
+
+  onShowDetail(id: string) {
+    this.visible = !this.visible
+    this.coinId = id
+    console.log(id);
+  }
 }

@@ -23,9 +23,12 @@
                             <img [src]="coin.image" alt="{{ coin.name }}" style="width: 1.5rem"
                                 class="img-fluid me-4" />
 
-                            <a href="https://www.w3schools.com" style="text-align:left;"> {{ coin.symbol |
+                            <a (click)="onShowDetail(coin.id)" href="" onclick="return false;" style="text-align:left;">
+                                {{
+                                coin.symbol |
                                 uppercase}}</a>
-                            <span class="fw-bold"> ({{ coin.name }})</span>
+                            <span class="fw-bold"> ({{ coin.name
+                                }})</span>
                         </td>
 
 
@@ -45,4 +48,7 @@
             </table>
         </div>
     </div>
+    <ng-container *ngIf="visible">
+        <app-coin [id]="coinId"></app-coin>
+    </ng-container>
 </div>
