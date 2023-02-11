@@ -46,9 +46,10 @@
                     </tr>
                 </tbody>
             </table>
+            <button (click)="loadMore()">More</button>
         </div>
     </div>
-    <ng-container *ngIf="visible">
-        <app-coin [id]="coinId"></app-coin>
-    </ng-container>
+
+    <app-coin [id]="coinId"></app-coin>
+
 </div>

@@ -18,8 +18,10 @@ export class CoinsComponent implements OnInit {
   filteredCoints: Coin[] = [];
 
   //hiding info box
-  visible: boolean = false
+
   coinId: string = ''
+  perPage: number = 5
+  page: number = 1
 
   constructor(
     private coinsService: CoinsService //aquí tenemos que inyectar el servicio
@@ -28,7 +30,7 @@ export class CoinsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.coinsService.getCoins()
+    this.coinsService.getCoinsByPage(this.perPage, this.page)
       .subscribe((res) => {
         this.coins = res;
         this.filteredCoints = this.coins;
@@ -36,6 +38,7 @@ export class CoinsComponent implements OnInit {
         (err) => console.error(err)
       );
 
+    this.onShowDetail('ethereum')
   }
 
 
@@ -49,8 +52,20 @@ export class CoinsComponent implements OnInit {
   onRefresh() { this.ngOnInit(); }
 
   onShowDetail(id: string) {
-    this.visible = !this.visible
+
     this.coinId = id
     console.log(id);
   }
+
+  loadMore() {
+    this.page += 1
+    this.coinsService.getCoinsByPage(this.perPage, this.page)
+      .subscribe((res) => {
+        this.coins = this.coins.concat(res);
+        this.filteredCoints = this.coins;
+      },
+        (err) => console.error(err)
+      );
+  }
+
 }

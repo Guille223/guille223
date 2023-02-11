@@ -10,10 +10,12 @@ import { CoinsComponent } from './components/coins/coins.component';
 import { CoinComponent } from './components/coin/coin.component';
 import { ImageComponent } from './components/image/image.component';
 import { ChartComponent } from './components/chart/chart.component';
+import { CustomDatePipe } from './pipes/custom-date.pipe';
+
 
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, NewsComponent, CoinsComponent, CoinComponent, ImageComponent, ChartComponent],
+  declarations: [AppComponent, NavComponent, NewsComponent, CoinsComponent, CoinComponent, ImageComponent, ChartComponent, CustomDatePipe],
   imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
